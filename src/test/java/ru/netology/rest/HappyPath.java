@@ -17,13 +17,6 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class HappyPath {
 
-private static WebDriver driver;
-
-    @BeforeAll
-    static void setUpAll() {
-        //System.setProperty("driver.chrome.driver", "driver//chromedriver");
-        WebDriverManager.chromedriver().setup();
-    }
 
     @AfterEach
     public void close(){
