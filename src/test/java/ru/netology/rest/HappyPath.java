@@ -19,34 +19,9 @@ public class HappyPath {
 
 private static WebDriver driver;
 
-    @BeforeAll
-    static void setUpAll() {
-        //System.setProperty("driver.chrome.driver", "driver//chromedriver");
-        WebDriverManager.chromedriver().setup();
-    }
-    
-    @AfterEach
-    public void close(){
-        driver.quit();
-        driver = null;
-    }
-    @BeforeEach
-    void setUp() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("start-maximized");
-        options.addArguments("disable-infobars");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--headless");
-        options.addArguments("--disable-extensions");
-        options.addArguments("--no-sandbox");
-        driver = new ChromeDriver(options);
-    }
-
     @Test
     public void shouldReturnValidValue() {
         open("http://localhost:7777/");
-        $(".form-field_theme_alfa-on-white");
         $("[data-test-id=name] input").setValue("Александр Исаев");
         $("[data-test-id=phone] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -57,8 +32,7 @@ private static WebDriver driver;
     @Test
     public void shouldReturnValidValueOneName() {
         open("http://localhost:7777/");
-        $(".form-field_theme_alfa-on-white");
-        $("[data-test-id=name] input").setValue("Алексей");
+        $("[data-test-id=name] input").setValue("Ирина Иванова");
         $("[data-test-id=phone] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $("[type=button]").click();
@@ -68,8 +42,7 @@ private static WebDriver driver;
     @Test
     public void shouldReturnValidValueDoubleName() {
         open("http://localhost:7777/");
-        $(".form-field_theme_alfa-on-white");
-        $("[data-test-id=name] input").setValue("Алексей Александр Иванов");
+        $("[data-test-id=name] input").setValue("Алексей-Александр Иванов");
         $("[data-test-id=phone] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $("[type=button]").click();
