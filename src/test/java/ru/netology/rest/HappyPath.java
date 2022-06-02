@@ -32,7 +32,7 @@ private static WebDriver driver;
     @Test
     public void shouldReturnValidValueOneName() {
         open("http://localhost:7777/");
-        $("[data-test-id=name] input").setValue("Ирина Иванова");
+        $("[data-test-id=name] input").setValue("Ян Акишин");
         $("[data-test-id=phone] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $("[type=button]").click();
